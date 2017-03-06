@@ -1,0 +1,77 @@
+<ion-view >
+  <ion-nav-title>
+    推荐
+  </ion-nav-title>
+
+    <ion-content>
+
+      <ion-refresher
+        pulling-text="上拉刷新..."
+        on-refresh="doRefresh()">
+      </ion-refresher>
+
+      <div>
+          <div class="list-inset">
+            <p class="pink"><strong>明星排行榜</strong><span>&nbsp;></span></p>
+            <div class="col-33 sydiv" style="float: left" ng-repeat="item in  mine.starsArr">
+              <img class="sydivy"  src="{{item.thumb}}" ng-click="mine.starbangClick($index)">
+              <p>{{item.name}}</p>
+            </div>
+            <img   class="sydivy" ng-click="mine.bangClick()"  src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2167056939,3719329829&fm=23&gp=0.jpg">
+          </div>
+
+           <!--<button ng-click="insertFn()" class="button btn-primary">插入</button>-->
+          <!--<button ng-click="selectFn()" class="button btn-primary">查询</button></div>-->
+        <div  class="list-inset">
+          <p class="pink" ><strong>{{mine.hothan.title}}</strong><span>&nbsp;></span></p>
+          <div   class="col-33 sydiv" ng-repeat="item in mine.hothan.items" ng-click="mine.itemClick($index)">
+            <img  class=".imgh" src="{{item.thumb}}" style="border-radius: 10%;height:159px" width="90%;">
+            <p class="pfs">{{item.name}}</p>
+          </div>
+        </div>
+        <div  class="list-inset">
+          <p class="pink"><strong>{{mine.hotstar.title}}</strong><span> &nbsp;></span></p>
+          <div    class="col-50 sydiv" ng-repeat="item in mine.hotstar.items" ng-click="mine.starClick($index)">
+            <img  class="imgh" src="{{item.thumb}}"  width="97%;">
+            <p class="pfs">{{item.title.substring(0,11)}}</p>
+          </div>
+        </div>
+        <div  class="list-inset">
+          <p style="color: hotpink"><strong>{{mine.hotmeizhuang.title}}</strong><span>&nbsp;></span><span style="float: right;" ng-click="mine.moreFn()">更多></span></p>
+          <div    class="col-50 sydiv" ng-repeat="item in mine.hotmeizhuang.items" ng-click="mine.meizhuoClick($index)">
+            <img  class="imgh" src="{{item.thumb}}"  width="97%;">
+            <p class="pfs">{{item.title.substring(0,20)}}</p>
+          </div>
+        </div>
+        <div  class="list-inset">
+            <p style="color: hotpink"><strong>{{mine.hotbaiguai.title}}</strong><span>&nbsp;></span></p>
+            <div  class="col-50 sydiv" ng-repeat="item in mine.hotbaiguai.items" ng-click="mine.baguaiClick($index)">
+              <img  class="imgh" src="{{item.thumb}}"  width="97%;">
+              <p class="pfs">{{item.title.substring(0,20)}}</p>
+            </div>
+          </div>
+        <div  class="list-inset">
+          <p style="color: hotpink"><strong>{{mine.hotxingzuo.title}}</strong><span>&nbsp;></span></p>
+          <div  class="col-50 sydiv " ng-repeat="item in mine.hotxingzuo.items" ng-click="mine.hotxingzuoClick($index)">
+            <img  class="imgh"  src="{{item.thumb}}"  width="97%;">
+            <p class="pfs">{{item.title.substring(0,20)}}</p>
+          </div>
+        </div>
+        <div  class="list-inset">
+        <p class="pink"><strong>{{mine.hotjianshen.title}}</strong><span>&nbsp;></span></p>
+        <div    class="col-50 sydiv" ng-repeat="item in mine.hotjianshen.items" ng-click="mine.hotjianshenClick($index)">
+          <img  class= "imgh" src="{{item.thumb}}"  width="97%;">
+          <p class="pfs">{{item.title.substring(0,20)}}</p>
+        </div>
+      </div>
+        <div  class="list-inset">
+          <p class="pink"><strong>{{mine.hotliuyou.title}}</strong><span>&nbsp;></span></p>
+          <div    class="col-50 sydiv" ng-repeat="item in mine.hotliuyou.items" ng-click="mine.hotliuyouClick($index)">
+            <img  class="imgh" src="{{item.thumb}}"   width="97%;">
+            <p class="pfs">{{item.title.substring(0,20)}}</p>
+          </div>
+        </div>
+      </div>
+
+    </ion-content>
+  </ion-view>

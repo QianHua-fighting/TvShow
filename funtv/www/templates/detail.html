@@ -1,0 +1,45 @@
+<ion-view  title="{{mine.jiemian.name}}">
+  <ion-nav-buttons >
+  <button class="button button-icon ion-chevron-left" ng-click="goBack()"></button>
+</ion-nav-buttons>
+<ion-content has-bouncing="false">
+    <div class="list">
+          <div class="item item-thumbnail-left " href="#" style="background:url({{mine.jiemian.img}});" >
+            <img src="{{mine.jiemian.img}}" >
+            <p class=".white"><strong>{{mine.jiemian.count}}集 <span>全</span></strong></p>
+            <p class=".white"><strong><span>来源:</span>{{mine.jiemian.source}}</strong></p>
+            <div class="row">
+              <button  class=" btn  icon ion-arrow-right-b">&nbsp;播放</button>
+              <button class=" btn icon ion-ios-download-outline  ion- col-offset-10">&nbsp;下载</button>
+            </div>
+          </div>
+    <div>
+      <div style="display:flex;width:100%;">
+        <div style="flex:1;text-align: center;" class="tab_default" ng-repeat="d in tabNames" ng-click="activeSlide($index)" ng-class="slectIndex==$index ? 'tab_select' : '' ">
+          {{d}}
+          <div class="arrow-top" style="left:{{15+$index*33}}%" ng-show="slectIndex==$index"></div>
+        </div>
+      </div>
+      <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" does-continue="false" show-pager="false">
+        <ion-slide >
+          <div >
+            <div >
+              <a style="margin: 6px" ng-repeat="item in mine.jishu" class="button button-stable" href="{{item.srcUrl}}">{{item.serialNo}}</a>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide >
+          <div>
+            <div class="infobtn" style="height: 350px" ng-bind-html="mine.jiemian.intro">
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+      </div>
+
+    </div>
+
+
+</ion-content>
+
+</ion-view>

@@ -1,0 +1,53 @@
+<div  >
+  <ion-view>
+    <ion-nav-title>我的</ion-nav-title>
+    <ion-content>
+
+      <!--<button ng-click="QQloginFn()" class="button button-balanced">QQ登录</button><br>-->
+      <div class="list">
+        <style>
+          .show{
+            display: block;
+          }
+          .hiddle{
+            display: none;
+          }
+        </style>
+
+
+        <a class="item item-thumbnail-left"  id="denglu">
+          <img src="{{userimg}}">
+          <h2>{{username}}</h2>
+          <button   ng-class="{show:isdenglu,hiddle:istuichu}" ng-click="dengluFn()" class="button  button-outline button-assertive" style="margin-top:10px;">QQ登录</button>
+        </a>
+      </div>
+      <div class="item item-divider"></div>
+      <div class="list">
+        <a  class="item item-icon-left">
+          <i class="icon ion-android-hangout" style="color:hotpink"></i>
+          我的话题
+          </a>
+
+        <a  class="item item-icon-left">
+          <i class="icon ion-chatbox-working" style="color:green"></i>
+          我的消息
+        </a>
+
+        <a  class="item item-icon-left">
+          <i class="icon ion-navigate" style="color: #0a9dc7"></i>
+          视频投稿
+        </a>
+
+        <a  class="item item-icon-left" ng-click="qqoutFn()">
+          <i class="icon ion-android-notifications-none " style="color: orange"></i>
+            退出登录
+        </a>
+      </div>
+
+
+
+    </ion-content>
+
+  </ion-view>
+
+</div>

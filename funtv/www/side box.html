@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+</head>
+<body ng-app="myApp">
+  <div ng-controller="firstC">
+    <button ng-click="show()">Loading</button>
+      <button ng-click="showFloat($event)">显示浮动框</button>
+    <button ng-click="showpopup()">点击显示对话框</button>
+    <button ng-click="showconfirm()">点击显示对话框</button>
+    <button ng-click="alertpopup()">点击显示警告框</button>
+    <ion-spinner icon="ripple"></ion-spinner>
+    <ion-slide-box pager-click="clickFn(index)">
+      <ion-slide>
+        <img src="http://img5.imgtn.bdimg.com/it/u=3928681034,4214212513&fm=23&gp=0.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="http://img1.imgtn.bdimg.com/it/u=1929245731,3879229552&fm=23&gp=0.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="http://img0.imgtn.bdimg.com/it/u=2134694061,3961462795&fm=23&gp=0.jpg">
+      </ion-slide>
+
+    </ion-slide-box>
+    <ion-popover-view>
+      <ion-header-bar>
+        <h1 class="title">我的浮动框标题</h1>
+      </ion-header-bar>
+      <ion-content>
+        Hello!
+      </ion-content>
+    </ion-popover-view>
+
+  </div>
+
+</body>
+<script>
+  var app=angular.module("myApp",["ionic"]);
+  app.controller("firstC",function ($scope,$ionicSlideBoxDelegate,$ionicLoading,$ionicPopover,$ionicPopup) {
+    $scope.clickFn=function (index) {
+       console.log(index);
+      $ionicSlideBoxDelegate.slide(index);
+    }
+    var template='</ion-slide-box><ion-popover-view><ion-header-bar><h1 class="title">用户名或密码为空</h1> </ion-header-bar>  </ion-popover-view>';
+    $scope.popover=$ionicPopover.fromTemplate(template,{
+      scope:$scope,
+      backfropClickToClose:false
+    })
+
+//    $ionicPopover.initialize({
+//      focusFistInput:true,
+//      backdropClickToClose:true,
+//      hardwareBackButtonClose:true
+//    })
+    $scope.show = function() {
+        $ionicLoading.show({
+          template: 'Loading...',
+          duration:3000,
+          noBackdrop:true
+
+        });
+    };
+    $scope.closeFn=function () {
+      $scope.popover.hide();
+    }
+    $scope.showFloat=function ($event) {
+       $scope.popover.show($event)
+    }
+    //清除浮动
+    $scope.$on('popover.hidden',function () {
+       console.log("我被隐藏了");
+    })
+    $scope.$on("$destroy",function () {
+       console.log("浮动框被清除");
+      $scope.popover.remove();
+    })
+    $scope.showpopup=function () {
+       $scope.data={};
+      var myPopup=$ionicPopup.show({
+        template:"<a>我是对话框</a>",
+        title:"标题",
+        scope:$scope,
+        subTitle:"子标题",
+        buttons:[
+          {
+            text:"取消",
+            type:"button-balanced",
+            onTap:function () {
+              console.log("我是取消按钮")
+            }
+          },
+          {
+            text:"确定",
+            type:"button-positive",
+            onTap:function (e) {
+               console.log("我是确定按钮");
+                 myPopup.close();
+            }
+          }
+        ]
+      })
+    }
+    $scope.showconfirm=function () {
+      var confirm=$ionicPopup.confirm({
+        title:"我是确认框",
+        template:"<a>你可以选择一个按钮</a>"
+
+      });
+      //判断用户的点击事件
+      confirm.then(function (res) {
+        if(res){
+          console.log("用户选择了确定");
+        }else{
+          console.log("用户选择了取消");
+        }
+      })
+    }
+    $scope.alertpopup=function () {
+      var alertpopup=$ionicPopup.alert({
+        title:"我是警告框",
+        template:"我要警告你"
+      })
+    }
+
+
+  })
+</script>
+</html>

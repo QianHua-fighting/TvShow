@@ -1,0 +1,20 @@
+
+
+
+<div >
+  <!--上拉刷新-->
+  <!--<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"> </ion-refresher>-->
+
+  <div style="margin-top:0px;">
+    <ion-list style="" >
+      <ion-item >
+        <div class="col col-50"   style="padding: 3px;width: 180px;height: 140px;float: left" ng-repeat="item in mine.articleLsit" ng-click="mine.articleClick($index)">
+          <img width="99%" src="{{item.thumb}}" alt="">
+          <p>{{item.title}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
+
+

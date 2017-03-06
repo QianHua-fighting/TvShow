@@ -1,0 +1,90 @@
+/* Empty. Add your own CSS if you like */
+.red{
+  color: red;
+}
+.tou{
+  width:100px;
+  height:100px;
+  float: left
+}
+.zhong{
+  text-align: center
+}
+.photo1{
+  padding: 3px;
+  width: 180px;
+  height: 140px;
+  float: left
+}
+.tab_default{
+  border-bottom:solid 1px #F2F2F2;
+  padding:6px 0;
+}
+.tab_select{
+  border-bottom:solid 1px pink;
+  box-shadow:0 -3px 8px pink inset;
+}
+.arrow-top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top:20px;
+  border: 6px solid #3E89F5;
+  border-right-color:transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+.arrow-top:after {
+  content:'';
+  position:absolute;
+  width: 0;
+  height: 0;
+  border: 12px solid #fff;
+  right: -12px;
+  bottom: -13px;
+  border-right-color:transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+.photo2{
+  background:lavenderblush;
+  height: 130px;
+}
+.photo3{
+  width: 80px;
+  border-radius: 50%;
+  height: 80px
+}
+.tou1{
+  padding-left:10px
+}
+.div1{
+  line-height: 30px;
+  text-align: center;
+  width: 60px;
+  height: 30px;
+  border: 1px solid hotpink;
+  border-radius: 10%
+}
+.div2{
+  background:lavenderblush;
+  height: 130px
+}
+.photo4{
+  width: 80px;border-radius: 50%;height: 80px
+}
+.div3{
+  font-size: 12px
+}
+.photo5{
+  width: 30px;height: 30px;border-radius: 50%
+}
+.span1{
+  font-size: 10px;line-height: 30px
+}
+.span2{
+  font-size: 14px
+}
+.photo6{
+  width: 100%;height: 160px
+}

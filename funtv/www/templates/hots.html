@@ -1,0 +1,43 @@
+<ion-view name="hots">
+  <ion-nav-buttons >
+    <button class="button button-icon ion-chevron-left" ng-click="goBack()"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>{{title}}</ion-nav-title>
+  <ion-content>
+
+    <ion-list >
+
+        <ion-item class="item item-left photo2">
+          <div class="row ">
+            <div class="col-35">
+              <img class="photo3" src="{{imgs}}"  alt="">
+            </div>
+            <div class="col tou1" >
+              <h2>{{title}}</h2><br>
+             <div ng-click="btnClick()" id="btn" class="div1">+ 关注</div>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+
+
+    <ion-view view-title="滑动tab" style="margin-top: 130px">
+      <ion-content has-bouncing="false">
+        <div style="display:flex;width:100%;">
+          <div id="word" style="flex:1;text-align: center;color: hotpink" class="tab_default" ng-repeat="d in tabNames" ng-click="activeSlide($index)" ng-class="slectIndex==$index ? 'tab_select' : '' ">
+            {{d}}
+            <div class="arrow-top" style="left:{{15+$index*33}}%" ng-show="slectIndex==$index"></div>
+          </div>
+        </div>
+        <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" does-continue="false" show-pager="false">
+          <ion-slide ng-repeat="p in pages">
+            <div ng-include="p"></div>
+          </ion-slide>
+        </ion-slide-box>
+      </ion-content>
+    </ion-view>
+
+
+
+  </ion-content>
+</ion-view>

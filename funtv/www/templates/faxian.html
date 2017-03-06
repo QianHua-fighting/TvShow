@@ -1,0 +1,50 @@
+<div class="has-header" ng-controller="faxianC">
+
+  <ion-view>
+    <ion-nav-title >发现</ion-nav-title>
+
+    <ion-content>
+
+      <ion-list class="zhong" >
+        <ion-item >
+          <div class="col col-25 tou"  ng-repeat="item in mine.newArr" ng-click="mine.headClick($index)">
+            <img src="{{item.icon}}" alt="">
+            <p>{{item.name}}</p>
+          </div>
+        </ion-item>
+      </ion-list>
+
+
+      <!--我的讨论区-->
+
+      <ion-list class="padding">
+
+        <p class="title-left" ><h4 class="red"><span class="icon  ion-ios-star assertive"></span>&nbsp;我的讨论区</h4></>
+        <ion-item class="item item-thumbnail-left"  ng-click="mine.itemClick($index)" ng-repeat="item in mine.dataArr">
+          <img src="{{item.thumb}}" alt="">
+          <h3>{{item.title}}</h3>
+          <p>{{item.lastTopicTitle}}</p>
+          <p><span class="icon ion-ios-play-outline"></span>{{item.dailyCount}}</p>
+        </ion-item>
+      </ion-list>
+      <!--热门讨论区-->
+      <ion-list class="padding">
+
+        <p class="title-left"><h4 class="red"><span class="icon  ion-fireball assertive"></span>&nbsp;热门讨论区</h4></p>
+        <ion-item class="item item-thumbnail-left"  ng-click="mine.hotsClick($index)" ng-repeat="item in mine.dataHots">
+          <img src="{{item.thumb}}" alt="">
+          <h3>{{item.title}}</h3>
+          <p>{{item.lastTopicTitle}}</p>
+        </ion-item>
+      </ion-list>
+
+
+
+    </ion-content>
+
+
+  </ion-view>
+
+</div>
+
+

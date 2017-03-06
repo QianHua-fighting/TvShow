@@ -1,0 +1,19 @@
+
+
+<ion-view name="">
+  <ion-nav-title>{{title}}</ion-nav-title>
+  <ion-content>
+
+    <ion-list class="zhong" >
+      <ion-item >
+        <div class="col col-100 "  ng-repeat="item in mine.dataArr" ng-click="mine.VideoClick($index)">
+          <img src="{{item.image}}" width="100%" height="180px" alt="">
+          <p>{{item.title}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+
+  </ion-content>
+</ion-view>

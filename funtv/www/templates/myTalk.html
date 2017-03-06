@@ -1,0 +1,42 @@
+<ion-view name="hots">
+  <ion-nav-buttons >
+    <button class="button button-icon ion-chevron-left" ng-click="goBack()"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>{{title}}</ion-nav-title>
+  <ion-content>
+
+      <!--上拉刷新-->
+      <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"> </ion-refresher>
+
+      <ion-list >
+        <ion-item class="item item-left div2" >
+          <div class="row ">
+            <div class="col-35">
+              <img class="photo4" src="{{headImg}}"  alt="">
+            </div>
+            <div class="col">
+              <h2>{{title}}</h2><br>
+              <div class="div3" ><span class="icon ion-social-twitch-outline assertive"></span>话题数:{{topic}}</div>
+            </div>
+          </div>
+        </ion-item>
+
+      </ion-list>
+
+      <ion-list >
+        <ion-item ng-repeat="item in mine.dataArr">
+
+            <img class="photo5" src="{{item.userAvatar}}" alt="">
+            <span class="span1">{{item.userNick}}</span>
+            <h2>{{item.title}}</h2>
+            <p class="span2">{{item.content}}</p>
+            <img src="" alt="">
+        </ion-item>
+
+      </ion-list>
+
+      <!--下拉加载-->
+      <ion-infinite-scroll on-infinite="loadMore()" immediate-check="false" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

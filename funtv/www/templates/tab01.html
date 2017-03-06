@@ -1,0 +1,23 @@
+
+
+
+<div >
+  <!--上拉刷新-->
+  <!--<ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"> </ion-refresher>-->
+
+  <div>
+    <ion-list>
+    <ion-item class="item item-thumbnail-left"  ng-click="mine.videosClick($index)" ng-repeat="item in mine.videosArr">
+    <img  style="" src="{{item.thumb}}" alt="" style="border-radius: 10px">
+    <h3>{{item.title}}</h3>
+    <p><span class="icon ion-ios-play-outline"></span>{{item.playCount}}</p>
+    </ion-item>
+    </ion-list>
+  </div>
+
+  <!--下拉加载-->
+  <ion-infinite-scroll on-infinite="loadMore()" immediate-check="false" distance="1%"></ion-infinite-scroll>
+
+</div>
+
+

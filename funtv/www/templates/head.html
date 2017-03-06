@@ -1,0 +1,32 @@
+
+<ion-view name="head">
+  <ion-nav-buttons >
+    <button class="button button-icon ion-chevron-left" ng-click="goBack()"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>{{name}}</ion-nav-title>
+  <ion-content>
+
+
+
+        <!--上拉刷新-->
+        <ion-refresher pulling-text="下拉刷新..." on-refresh="doRefresh()"> </ion-refresher>
+
+            <ion-list>
+              <ion-item >
+                <div class="col col-50 photo1"  ng-repeat="item in mine.videoArr" ng-click="mine.videoClick($index)">
+                  <img width="99%" src="{{item.thumb}}" alt="">
+                  <p >{{item.title}}</p>
+                </div>
+              </ion-item>
+            </ion-list>
+
+            <!--下拉加载-->
+            <ion-infinite-scroll on-infinite="loadMore()" immediate-check="false" distance="1%"></ion-infinite-scroll>
+
+  </ion-content>
+
+
+</ion-view>
+
+
+
